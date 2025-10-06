@@ -1,5 +1,6 @@
-document.querySelectorAll('.toggle-checkbox').forEach(toggle => {
-  toggle.addEventListener('change', () => {
-    console.log(`${toggle.id} is now ${toggle.checked ? 'enabled' : 'disabled'}`);
-  });
-});
+function openModal() {
+  document.getElementById('transactionModal').classList.remove('hidden');
+}
+function closeModal() {
+  document.getElementById('transactionModal').classList.add('hidden');
+}

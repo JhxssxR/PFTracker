@@ -1,18 +1,18 @@
-
+<?php include 'components/add-transaction-modal.php'; ?>
 
 <!-- Summary Cards -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
   <div class="bg-green-100 p-4 rounded shadow">
     <p class="text-sm text-gray-600">Total Income</p>
-    <p class="text-2xl font-bold text-green-700">$</p>
+    <p class="text-2xl font-bold text-green-700">$0</p>
   </div>
   <div class="bg-red-100 p-4 rounded shadow">
     <p class="text-sm text-gray-600">Total Expenses</p>
-    <p class="text-2xl font-bold text-red-600">$</p>
+    <p class="text-2xl font-bold text-red-600">$0</p>
   </div>
   <div class="bg-blue-100 p-4 rounded shadow">
     <p class="text-sm text-gray-600">Net Income</p>
-    <p class="text-2xl font-bold text-blue-700">$</p>
+    <p class="text-2xl font-bold text-blue-700">$0</p>
   </div>
 </div>
 
@@ -31,6 +31,9 @@
         <option>Bills & Utilities</option>
         <option>Food & Dining</option>
         <option>Transportation</option>
+        <option>Freelance</option>
+        <option>Salary</option>
+
       </select>
       <button class="px-4 py-2 border rounded text-gray-600 hover:bg-gray-100">Clear Filters</button>
     </div>
@@ -39,3 +42,12 @@
 </div>
 
 
+<!-- Modal Script -->
+<script>
+  function openModal() {
+    document.getElementById('transactionModal').classList.remove('hidden');
+  }
+  function closeModal() {
+    document.getElementById('transactionModal').classList.add('hidden');
+  }
+</script>

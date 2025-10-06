@@ -11,7 +11,11 @@
     </h2>
 
     <!-- Form -->
-    <form action="save-transaction.php" method="POST" class="space-y-4">
+   <form action="save-transaction.php" method="POST">
+
+
+
+
       <!-- Type -->
       <div>
         <label class="block text-sm font-medium text-gray-700">Transaction Type</label>
@@ -38,9 +42,14 @@
         <label class="block text-sm font-medium text-gray-700">Category</label>
         <select name="category" class="w-full mt-1 border rounded px-3 py-2">
           <option value="">Select category</option>
-          <option value="food">Food</option>
-          <option value="rent">Rent</option>
-          <option value="utilities">Utilities</option>
+          <option value="Food">Food</option>
+          <option value="Rent">Rent</option>
+          <option value="Utilities">Utilities</option>
+          <option value="Freelance">Freelance</option>
+          <option value="Salary">Salary</option>
+          <option value="Others">Others</option>
+          
+        
           <!-- Add more as needed -->
         </select>
       </div>

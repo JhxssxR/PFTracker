@@ -34,9 +34,11 @@
 
 <!-- Quick Actions -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-  <button class="bg-white border px-4 py-3 rounded shadow hover:bg-gray-100 flex items-center gap-2">
+  <a href="../PFTracker/?page=transactions">
+    <button class="bg-white border px-4 py-3 rounded shadow hover:bg-gray-100 flex items-center gap-2">
     ➕ Add Transaction
   </button>
+  </a>
   <button class="bg-white border px-4 py-3 rounded shadow hover:bg-gray-100 flex items-center gap-2">
     👁 View All Transactions
   </button>

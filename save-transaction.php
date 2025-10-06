@@ -1,13 +1,12 @@
 <?php
-// Start session if needed
 session_start();
 
-// DB connection (adjust credentials)
-$host = 'localhost';
-$db   = 'pftracker';
-$user = 'root';
-$pass = '';
-$charset = 'utf8mb4';
+// Database configuration
+$host     = 'localhost';
+$db       = 'pftracker';
+$user     = 'root';
+$pass     = '';
+$charset  = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
@@ -18,22 +17,23 @@ $options = [
 try {
   $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (PDOException $e) {
-  die("Database connection failed: " . $e->getMessage());
+  die("❌ Database connection failed: " . $e->getMessage());
 }
 
-// Validate and sanitize input
+// Sanitize and validate input
 $type        = $_POST['type'] ?? '';
-$amount      = floatval($_POST['amount'] ?? 0);
+$amount      = isset($_POST['amount']) ? floatval($_POST['amount']) : 0;
 $description = trim($_POST['description'] ?? '');
 $category    = $_POST['category'] ?? '';
 $date        = $_POST['date'] ?? date('Y-m-d');
 
 // Basic validation
 if (!$type || !$amount || !$category) {
-  die("Missing required fields.");
+  header("Location: /PFTracker/pages/transactions.php?error=missing");
+  exit;
 }
 
-// Insert into database
+// Insert transaction
 $sql = "INSERT INTO transactions (type, amount, description, category, date) 
         VALUES (:type, :amount, :description, :category, :date)";
 $stmt = $pdo->prepare($sql);
@@ -45,6 +45,6 @@ $stmt->execute([
   ':date'        => $date,
 ]);
 
-// Redirect back to transactions page
-header("Location: transactions.php?success=1");
+// Redirect to transactions page with success flag
+header("Location: ../PFTracker/?page=transactions");
 exit;

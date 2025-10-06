@@ -1,6 +1,6 @@
 <?php
 $page = $_GET['page'] ?? 'dashboard';
-$validPages = ['dashboard', 'transactions', 'analytics', 'budgets', 'settings'];
+$validPages = ['dashboard', 'transactions', 'analytics', 'budgets','reports', 'settings'];
 $currentPage = in_array($page, $validPages) ? $page : 'dashboard';
 ?>
 
